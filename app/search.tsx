@@ -1,7 +1,12 @@
-export type searchProps =  {
-    onsearch(): import("react").MouseEventHandler<HTMLButtonElement>;
- }
-export default function Search(props:searchProps) {
+
+export default function Search({onsearch}) {
+    let name;
+    const onNameChange = (e)=>{
+        name = e.target.value
+    }
+    const testFun = (e,t)=> {
+        onsearch(e,t)
+    }
     return (
         <div className="lg:mx-auto max-w-2xl min-w-55 lg:min-w-7xl sm:min-w-80">
             <div className="relative">
@@ -10,8 +15,8 @@ export default function Search(props:searchProps) {
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
                 </div>
-                <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search brand | Jeans | Shirt | dress| more....." required />
-                <button type="submit" onClick={props.onsearch()} className="text-white absolute end-2.5 bottom-2.5 bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                <input type="search" id="default-search" onChange = {onNameChange} className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search brand | Jeans | Shirt | dress| more....." required />
+                <button type="submit" onClick={e=>testFun(e, name)} className="text-white absolute end-2.5 bottom-2.5 bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
             </div>
         </div>
     )
