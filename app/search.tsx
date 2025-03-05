@@ -1,8 +1,9 @@
-'use client'
- /* eslint-disable */ 
-export default function Search(props:any) {
+export type searchProps =  {
+    onsearch(): import("react").MouseEventHandler<HTMLButtonElement>;
+ }
+export default function Search(props:searchProps) {
     return (
-        <div className="w-3xl">
+        <div className="lg:mx-auto max-w-2xl min-w-55 lg:min-w-7xl sm:min-w-80">
             <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                     <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
