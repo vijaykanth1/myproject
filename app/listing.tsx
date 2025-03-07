@@ -3,7 +3,7 @@ import { Product } from "./page";
 
 //import Image from 'next/image';
 export default function NumberList(line:Product) {
-    const imgUrl = `https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-01-related-product-0${(line.id)==0?1:line.id}.jpg`
+    const imgUrl = line.image
     return (
       <div className="group relative">
       <img
@@ -14,7 +14,7 @@ export default function NumberList(line:Product) {
       <div className="mt-4 flex justify-between">
         <div>
           <h3 className="text-sm text-gray-700">
-          <Link href={line.name}>
+          <Link href={'product-details/'+line.id}>
               <span aria-hidden="true" className="absolute inset-0"></span>
               Basic Tee
             </Link >

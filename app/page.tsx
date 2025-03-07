@@ -2,19 +2,22 @@
 'use client'
 import NumberList from "./listing";
 import Search from "./search";
-import { products } from './mock/products';
+//import { products } from './mock/products';
 import { useState } from "react";
 export type Product = {
-id: string | number
-name: string
+image: string
+title: string
+id: number
 } 
 export default function Home() {
   const [numbers, setnumbers] = useState<Product[]>([]);
   const [searchKey, setsearchkey] = useState('')
   function getProducts(te,ll) {
+    const url = ll?`https://fakestoreapi.com/products/category/${ll}`:'https://fakestoreapi.com/products'
+    fetch(url)
+            .then(res=>res.json())
+            .then(json=>setnumbers(json))
     setsearchkey(ll);
-    console.log(ll)
-    setnumbers(products)
   }
   return (
     <main className="flex min-h-screen flex-col p-12">
