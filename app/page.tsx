@@ -21,7 +21,7 @@ export default function Home() {
     setsearchkey(ll);
   }
   return (
-    <main className="flex min-h-screen flex-col lg:p-12 sm:p-4">
+    <main className="flex min-h-screen flex-col lg:p-12 sm:p-4 mt-20">
        <Search onsearch={getProducts}/>
     <div className="bg-white pt-4">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
