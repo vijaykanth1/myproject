@@ -16,10 +16,10 @@ export default function NumberList(line:Product) {
           <h3 className="text-sm text-gray-700">
           <Link href={'product-details/'+line.id}>
               <span aria-hidden="true" className="absolute inset-0"></span>
-              Basic Tee
+            {line.title}
             </Link >
           </h3>
-          <p className="mt-1 text-sm text-gray-500">Black</p>
+          <p className="mt-1 text-sm text-gray-500">${line.price}</p>
         </div>
         <p className="text-sm font-medium text-gray-900"></p>
       </div>

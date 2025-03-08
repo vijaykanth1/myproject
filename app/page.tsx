@@ -7,7 +7,8 @@ import { useState } from "react";
 export type Product = {
 image: string
 title: string
-id: number
+id: number,
+price: number
 } 
 export default function Home() {
   const [numbers, setnumbers] = useState<Product[]>([]);
@@ -20,7 +21,7 @@ export default function Home() {
     setsearchkey(ll);
   }
   return (
-    <main className="flex min-h-screen flex-col p-12">
+    <main className="flex min-h-screen flex-col lg:p-12 sm:p-4">
        <Search onsearch={getProducts}/>
     <div className="bg-white pt-4">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
